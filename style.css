@@ -111,7 +111,8 @@ h2 {
     margin-top: 70px;
 }
 
-#login_button a {
+#login_button button {
+    color: #00CCFF;
     position: absolute;
     width: 100%;
     height: 100%;
