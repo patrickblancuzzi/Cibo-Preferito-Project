@@ -9,24 +9,45 @@
     <link rel="stylesheet" href="style.css" />
   </head>
     <div class="login_form_container">
-      <div class="login_form">
-        <h2>Accedi</h2>
-        <div class="input_group">
-          <i class="fa fa-unlock-alt"></i>
-          <input
-            type="password"
-            placeholder="Password"
-            class="input_text"
-            autocomplete="off"
-          />
-        </div>
+      <form action="" method="post" id="login-form">
+        <div class="login_form">
+          <h2>Accedi</h2>
+          <div class="input_group">
+            <i class="fa fa-unlock-alt"></i>
+            <input
+              type="password"
+              placeholder="Password"
+              class="input_text"
+              autocomplete="off"
+            />
+          </div>
 
-        <center>
-            <div class="button_group" id="login_button">
-            <a>Invia</a>
-            </div>
-        </center>
+          <center>
+              <div class="button_group" id="login_button">
+                <button type="submit">invia</button>
+              </div>
+          </center>
+        </div>
+      </form>
+      <div class="cointainerPopup" id="popup">
+        <img src="./404-tick.png">
+        <h2>Grazie!</h2>
+        <p>Abbiamo registrato la tua risposta</p>
+        <button type="button">OK</button>
       </div>
     </div>
+
+    <script>
+      const loginForm = document.getElementById('login-form');
+      loginForm.addEventListener('submit', (event) => {
+        // Previene l'invio del modulo e il ricaricamento della pagina
+        event.preventDefault();
+
+        // Mostra il popup
+        alert('Il modulo è stato inviato');
+      });
+
+    </script>
+
   </body>
 </html>
