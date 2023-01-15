@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cibi - Ringraziamenti</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="style2.css" />
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcaR68jAAAAAPf2rbrNSGRKaeBxwFKPVNCWf0Va"></script>
+</head>
+    <div class="login_form_container">
+        <div class="login_form">
+            <div class="textForm">
+                <h2>Grazie per aver votato!</h2>
+                <center>
+                    <p class="textBtwH">la tua votazione e' stata registrata</p>
+                    <div class="button_group" id="login_button">
+                        <button type="submit" id="redirect-button">Visualizza risultati</button>
+                      </div>
+                </center>
+            </div>
+        </div>
+    </div>
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LcaR68jAAAAAPf2rbrNSGRKaeBxwFKPVNCWf0Va', {action: 'homepage'}).then(function(token) {
+            document.getElementById("g-token").value = token;
+            });
+        });
+
+        document.getElementById("redirect-button").addEventListener("click", function(){
+            window.location.href = "LINKCOLLEGAMENTOSTATISTICHE";
+        });
+    </script>
+  </body>
+</html>
