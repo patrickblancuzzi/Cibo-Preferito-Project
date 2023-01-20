@@ -1,0 +1,12 @@
+[
+    {
+        "nome": "Beppe",
+        "cognome": "Rossi",
+        "cibo": "pizza"
+    },
+    {
+        "nome": "Giovanni",
+        "cognome": "Verdi",
+        "cibo": "frittata"
+    }
+]
