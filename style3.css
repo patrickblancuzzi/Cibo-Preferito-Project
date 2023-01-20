@@ -195,3 +195,10 @@ select{
     justify-content: center;
     align-items: center;
 }
+
+.error_p{
+    color: red;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    font-size: 15px;
+}
