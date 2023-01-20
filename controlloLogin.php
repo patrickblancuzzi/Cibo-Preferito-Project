@@ -6,12 +6,21 @@
     $request = file_get_contents($url);
     $response = json_decode($request);
 
-
-
     if ($response->success) {
-        echo "Success";
+        $user_input_password = $_POST["psw"];
+
+        $json = file_get_contents("users.json");
+        $data = json_decode($json, true);
+        
+        if (password_verify($user_input_password, $data["user"]["password"])) {
+            echo "Accesso consentito per l'utente";
+        } elseif (password_verify($user_input_password, $data["admin"]["password"])) {
+            echo "Accesso consentito per l'amministratore";
+        } else {
+            header('Location: cibi.php?error=2');
+        }
     } else {
-        echo "Failed";
+        header("Location: cibi.php?error=1");
     }
 
     print_r($response);
