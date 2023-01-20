@@ -13,7 +13,9 @@
         $data = json_decode($json, true);
         
         if (password_verify($user_input_password, $data["user"]["password"])) {
-            echo "Accesso consentito per l'utente";
+            session_start();
+            $_SESSION["user"] = "user";
+            header("Location: votazione.php");
         } elseif (password_verify($user_input_password, $data["admin"]["password"])) {
             echo "Accesso consentito per l'amministratore";
         } else {
@@ -22,6 +24,4 @@
     } else {
         header("Location: cibi.php?error=1");
     }
-
-    print_r($response);
 ?>
