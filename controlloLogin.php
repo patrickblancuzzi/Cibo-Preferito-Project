@@ -19,9 +19,9 @@
         } elseif (password_verify($user_input_password, $data["admin"]["password"])) {
             echo "Accesso consentito per l'amministratore";
         } else {
-            header('Location: cibi.php?error=2');
+            header('Location: index.php?error=2');
         }
     } else {
-        header("Location: cibi.php?error=1");
+        header("Location: index.php?error=1");
     }
 ?>
