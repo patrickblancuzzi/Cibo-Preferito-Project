@@ -47,6 +47,11 @@ body {
     animation-delay: -3s;
 }
 
+.space{
+    width: 20px;
+    height: 10px;
+}
+
 @keyframes rotate_border {
     0% {
         transform: rotate(0deg);
@@ -85,13 +90,13 @@ select{
 }
 
 .selector{
-    padding-top: 10%;
+    padding-top: 8%;
     padding-right: 40px;
     padding-left: 25px;
     position: relative;
     display: flex;
     width: 20em;
-    height: 7em;
+    height: 6.5em;
     line-height: 3;
     background: #0c1022;
     border-radius: .25em;
@@ -105,6 +110,40 @@ select{
     color: #00ccff;
     cursor: pointer;
     border: #00ccff solid 1px !important;
+}
+
+
+.anagrafici{
+    font-size:1em;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding-top: 1em;
+    margin-left: 25px;
+}
+
+.name::placeholder, .surname::placeholder{
+    color: #00ccff;
+    font-size: 14px;
+}
+
+.name,  .surname{
+    width: 120px;
+    background-color: #0c1022;
+    text-align: center;
+    font-size: 1.5em;
+    flex:1;
+    color: #00ccff;
+    border: #00ccff solid 1px !important;
+}
+
+.name{
+    display: flex;
+}
+
+.surname{
+    display: flex;
+    position: absolute;
+    left: 50%;
 }
 
 .selector::after{
@@ -139,7 +178,7 @@ select{
 }
 
 #login_button button {
-    top: -70%;
+    top: -120%;
     color: #00CCFF;
     position: absolute;
     width: 100%;
