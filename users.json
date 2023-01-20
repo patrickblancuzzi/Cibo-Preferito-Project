@@ -1,0 +1,10 @@
+{
+    "user": {
+        "username": "utente",
+        "password": "$2y$10$9pa3Om1Ae2N66qogc3X3oOE8oz2E\/q1g9aF53DJ4punE7d\/UYChei"
+    },
+    "admin": {
+        "username": "admin",
+        "password": "$2y$10$5ceWT5HMkyVESvvvlAP81Og1MTjFUI.tYo6EFQ6m2jOW2KKkMznJ6"
+    }
+}
