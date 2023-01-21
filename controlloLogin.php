@@ -17,7 +17,9 @@
             $_SESSION["user"] = "user";
             header("Location: votazione.php");
         } elseif (password_verify($user_input_password, $data["admin"]["password"])) {
-            echo "Accesso consentito per l'amministratore";
+            session_start();
+            $_SESSION["user"] = "admin";
+            header("Location: statistiche.php");
         } else {
             header('Location: index.php?error=2');
         }
