@@ -54,8 +54,13 @@ button{
 }
 
 .buttonX{
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
+    position: relative;
+    background-color: #0c1022;
+    color: #00ccff;
+    cursor: pointer;
+    border-radius: 40%;
 }
 
 .containerButtons{
@@ -108,13 +113,6 @@ button{
     height:100%;
     left: 50%;
     transform: translateX(-50%);
-}
-
-.buttonX{
-    background-color: #0c1022;
-    color: #00ccff;
-    cursor: pointer;
-    border-radius: 40%;
 }
 
 a{
