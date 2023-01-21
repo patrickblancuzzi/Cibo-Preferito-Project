@@ -17,6 +17,7 @@ body{
 .title{
     text-align: center;
     padding-top: 2vh;
+    /* top: 30px; */
 }
 
 .firstPart{
@@ -73,6 +74,8 @@ button{
 
 .graphic{
     height: 53vh;
+    bottom: 100px;
+    position: relative;
 }
 
 .sectionVotanti{
@@ -132,5 +135,10 @@ a.button {
 a.button:hover {
     color: #fff;
     box-shadow: #00bfff 0 0 0 40px inset;
+}
+
+.low-graph{
+    position: relative;
+    top: 170px;
 }
   
