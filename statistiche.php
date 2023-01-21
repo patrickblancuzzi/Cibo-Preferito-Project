@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require("grafici.php");
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style4.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -24,17 +26,25 @@
     <section class="firstPart">
         <div class="containerGraphBtns">
             <div class="containerButtons">
-                <a href="#" class="button">Torta</a>
-                <a href="#" class="button">Barre</a>
+                <!-- <a href="#" class="button">Torta</a>
+                <a href="#" class="button">Barre</a> -->
             </div>
-            <div class="graphic">
-                <!-- INSERISCI IL GRAFICO -->
-                <img src="grafici.php" alt="Grafico a barre">
-            </div>
+        <div class="low-graph">
+            <center>
+                <div class="graphic">
+                    <div style="width: 500px">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </center>
+        </div>
         </div>
     </section>
     <?php
         if(isset($_SESSION["user"]) && $_SESSION["user"] == "admin"){
+
+            $json_string = file_get_contents("voti.json");
+            $data = json_decode($json_string, true);
 
             echo '<section class="sectionVotanti">';
                 echo '<div class="totVotanti">';
@@ -42,13 +52,10 @@
                         echo '<h2 class="textTotVotanti">Totale Votanti:</h2>';
                     echo '</div>';
                     echo '<div class="textVotanti">';
-                        echo '<h2 class="numeroVotanti">0</h2>';
+                        echo '<h2 class="numeroVotanti">' . count($data) . '</h2>';
                     echo '</div>';
                 echo '</div>';
             echo '</section>';
-
-            $json_string = file_get_contents("voti.json");
-            $data = json_decode($json_string, true);
 
             echo '<section class="tableVotanti">';
                 echo '<div class="tableCont">';
@@ -70,5 +77,78 @@
             echo '</section>';
         }
     ?>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+    let json
+
+    fetch('voti.json')
+    .then(response => response.json())
+    .then(data => {
+        json = data;
+        console.log(json)
+        const nomiCibi = json.map(json => json.cibo);
+        console.log(nomiCibi);
+        
+        let pizza = 0
+    let carbonara = 0
+    let sushi = 0
+    let hotdog = 0
+    let tacos = 0
+    let frico = 0
+    let frittata = 0
+    let lasagne = 0
+    let cotoletta = 0
+    let riso = 0
+
+    nomiCibi.forEach(element => {
+        if(element == "pizza"){
+            pizza++
+            console.log("AA")
+        }else if(element == "carbonara"){
+            carbonara++
+        }else if(element == "sushi"){
+            sushi++
+        }else if(element == "hotdog"){
+            hotdog++
+        }else if(element == "tacos"){
+            tacos++
+        }else if(element == "frico"){
+            frico++
+        }else if(element == "frittata"){
+            frittata++
+        }else if(element == "lasagne"){
+            lasagne++
+        }else if(element == "cotoletta"){
+            cotoletta++
+        }else if(element == "riso"){
+            riso++
+        }
+    });
+
+    console.log(pizza)
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+        labels: ['Pizza', 'Carbonara', 'Sushi', 'Hotdog', 'Tacos', 'Frico', 'Frittata', 'Lasagne', 'Cotoletta', 'Riso'],
+        datasets: [{
+            label: '# of Votes',
+            data: [pizza, carbonara, sushi, hotdog, tacos, frico, frittata, lasagne, cotoletta, riso],
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        },
+        defaultFontColor: '#fff'
+        }
+    });
+    })
+</script>
 </body>
 </html>
