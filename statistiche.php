@@ -1,6 +1,8 @@
 <?php
     session_start();
-    require("grafici.php");
+    if(!isset($_SESSION["user"])){
+        header("Location: index.php");
+    }
 ?>
 
 <!DOCTYPE html>
